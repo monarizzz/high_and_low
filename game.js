@@ -15,6 +15,10 @@ const startbtn = document.getElementById("startbtn");
 // カードの種類
     const cardType = ["diamond","heart","spade","club"];
 
+// 
+    const win = document.getElementById("win");
+    const lose = document.getElementById("lose");
+
 
 // 初期関数
     function inilaizeGame () {
@@ -36,28 +40,28 @@ const startbtn = document.getElementById("startbtn");
     highbtn.addEventListener("click",high)
     lowbtn.addEventListener("click",low)
 
-        
 //判定の関数    
     function high(){
    rightimg.src = "./card/card_" + rightcardTypeRan + "_" + rightcardNumZero + ".png";
             if (rightcardNumZero > leftcardNumZero){
-            alert("正解");
-        }
-        else{
-            alert("不正解");
-        }
+                win.classList.remove("hide")
             }
+            else{
+                lose.classList.remove("hide")
+                    }
+                }
         
     function low (){
+        rightimg.src = "./card/card_" + rightcardTypeRan + "_" + rightcardNumZero + ".png";
             if (rightcardNum < leftcardNum){
-            alert("正解");
-        }
-        else{
-            alert("不正解");
-        }
+                win.classList.remove("hide")
             }
+            else{
+                lose.classList.remove("hide")
+                    }
+                }
+         
 
-            
 
 //high,low ボタンの非表示
 highbtn.addEventListener('click',
@@ -75,9 +79,8 @@ highbtn.addEventListener('click',
                 startbtn.classList.remove("hide");
                 leftimg.src = "card/card_back.png";
                 rightimg.src = "card/card_back.png";
-
-                lowbtn.removeEventListener("click",low)
-                highbtn.removeEventListener("click",high)
+                win.classList.add("hide");
+                lose.classList.add("hide");
                 
             })
         } )
@@ -98,9 +101,8 @@ lowbtn.addEventListener('click',
                 startbtn.classList.remove("hide");
                 leftimg.src = "card/card_back.png";
                 rightimg.src = "card/card_back.png";
-
-                lowbtn.removeEventListener("click",low)
-                highbtn.removeEventListener("click",high)
+                win.classList.add("hide");
+                lose.classList.add("hide");
                 
             })
         } )
