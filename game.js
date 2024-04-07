@@ -18,16 +18,23 @@ const lose = document.getElementById("lose");
 // カードの種類
   const cardType = ["diamond", "heart", "spade", "club"];
   // カードの種類をランダム化
-  const leftcardTypeRan = cardType[Math.floor(Math.random() * (3 + 1))];
-  const rightcardTypeRan = cardType[Math.floor(Math.random() * (3 + 1))];
+  let leftcardTypeRan;
+  let rightcardTypeRan;
   // カードの数字のランダム化
-  const leftcardNum = Math.floor(Math.random() * (12 + 1) + 1);
-  const rightcardNum = Math.floor(Math.random() * (12 + 1) + 1);
+  let leftcardNum ;
+  let rightcardNum;
   // ゼロ詰め
-  const leftcardNumZero = ("00" + leftcardNum).slice(-2);
-  const rightcardNumZero = ("00" + rightcardNum).slice(-2);
+  let leftcardNumZero;
+  let rightcardNumZero;
 
 startbtn.addEventListener("click", function () {
+  leftcardTypeRan = cardType[Math.floor(Math.random() * (3 + 1))];
+  rightcardTypeRan = cardType[Math.floor(Math.random() * (3 + 1))];
+  leftcardNum = Math.floor(Math.random() * (12 + 1) + 1);
+  rightcardNum = Math.floor(Math.random() * (12 + 1) + 1);
+  leftcardNumZero = ("00" + leftcardNum).slice(-2);
+  rightcardNumZero = ("00" + rightcardNum).slice(-2);
+
   leftimg.src ="./card/card_" + leftcardTypeRan + "_" + leftcardNumZero + ".png";
   highbtn.classList.remove("hide");
   lowbtn.classList.remove("hide");
